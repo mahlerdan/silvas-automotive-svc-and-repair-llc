@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Silva's Automotive SVC & Repair LLC",
+  "image": "https://silvas-automotive-svc-and-repair-llc.manus.space/logo.png",
+  "@id": "https://silvas-automotive-svc-and-repair-llc.manus.space/#website",
+  "url": "https://silvas-automotive-svc-and-repair-llc.manus.space",
+  "telephone": "+1-208-528-0092",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "695 Yellowstone Ave",
+    "addressLocality": "Idaho Falls",
+    "addressRegion": "ID",
+    "postalCode": "83402",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.5042,
+    "longitude": -112.0225
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://www.google.com/maps/search/?api=1&query=Silvas+Automotive+SVC+Repair+LLC+695+Yellowstone+Ave+Idaho+Falls+ID+83402"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.2",
+    "reviewCount": "108"
+  }
+}
