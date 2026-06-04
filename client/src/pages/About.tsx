@@ -80,10 +80,21 @@ export default function About() {
 
             {/* Right Graphic Card */}
             <div className="lg:col-span-5">
-              <div className="industrial-border bg-card p-8 space-y-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-primary/10 text-primary p-4 border-b border-l border-border">
-                  <Hammer className="w-8 h-8" />
+              <div className="industrial-border bg-card space-y-0 relative overflow-hidden">
+                {/* About team photo */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src="/images/about-team.jpg"
+                    alt="Certified mechanic working on a vehicle at Silva's Automotive in Idaho Falls"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
+                  <div className="absolute top-0 right-0 bg-primary/10 text-primary p-4 border-b border-l border-border">
+                    <Hammer className="w-8 h-8" />
+                  </div>
                 </div>
+                <div className="p-8 space-y-6">
                 
                 <h3 className="font-display text-2xl tracking-tight border-b border-border pb-4">
                   GARAGE DETAILS
@@ -113,6 +124,7 @@ export default function About() {
                 <div className="bg-background border border-border p-4 text-xs font-mono text-muted-foreground">
                   <p className="text-primary font-bold mb-1">📍 OUR LOCATION:</p>
                   <p>Conveniently located on Yellowstone Ave, making it easy for drivers in Idaho Falls, Ammon, and surrounding areas to reach us.</p>
+                </div>
                 </div>
               </div>
             </div>

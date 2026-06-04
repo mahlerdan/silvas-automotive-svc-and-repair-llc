@@ -11,17 +11,23 @@ export default function Home() {
     {
       icon: <Wrench className="w-8 h-8 text-primary" />,
       title: "Full-Service Auto Repair",
-      desc: "From complex engine work and transmission diagnostics to exhaust repairs, our certified mechanics handle all makes and models."
+      desc: "From complex engine work and transmission diagnostics to exhaust repairs, our certified mechanics handle all makes and models.",
+      image: "/images/service-engine.jpg",
+      imageAlt: "Close-up of engine components being serviced by a mechanic"
     },
     {
       icon: <Gauge className="w-8 h-8 text-primary" />,
       title: "Diagnostics & Tuning",
-      desc: "Using high-end digital diagnostic systems, we read error codes and fine-tune your vehicle's performance with precision."
+      desc: "Using high-end digital diagnostic systems, we read error codes and fine-tune your vehicle's performance with precision.",
+      image: "/images/service-brakes.jpg",
+      imageAlt: "Mechanic using diagnostic tools to inspect vehicle components"
     },
     {
       icon: <Shield className="w-8 h-8 text-primary" />,
       title: "Brakes & Suspension",
-      desc: "Complete safety inspections, pad and rotor replacements, steering repairs, and suspension tuning to keep your ride smooth and secure."
+      desc: "Complete safety inspections, pad and rotor replacements, steering repairs, and suspension tuning to keep your ride smooth and secure.",
+      image: "/images/service-lift.jpg",
+      imageAlt: "Vehicle raised on a lift for brake and suspension inspection"
     }
   ];
 
@@ -47,18 +53,25 @@ export default function Home() {
     <Layout>
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-20 border-b border-border">
-        {/* Background Gradients & Industrial Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/80 z-10" />
+        {/* Real hero background image */}
+        <img
+          src="/images/hero-auto.jpg"
+          alt="Professional mechanic working on a vehicle engine at Silva's Automotive"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="eager"
+        />
+        {/* Dark overlay to maintain text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60 z-10" />
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
+          className="absolute inset-0 z-[5]"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), radial-gradient(circle, oklch(0.62 0.25 35 / 15%) 0%, transparent 80%)`
+            backgroundImage: `radial-gradient(circle, oklch(0.62 0.25 35 / 10%) 0%, transparent 70%)`
           }}
         />
         
         {/* Technical decorative lines */}
-        <div className="absolute top-10 left-10 w-24 h-24 border-t-2 border-l-2 border-primary/20 hidden md:block" />
-        <div className="absolute bottom-10 right-10 w-24 h-24 border-b-2 border-r-2 border-primary/20 hidden md:block" />
+        <div className="absolute top-10 left-10 w-24 h-24 border-t-2 border-l-2 border-primary/20 hidden md:block z-20" />
+        <div className="absolute bottom-10 right-10 w-24 h-24 border-b-2 border-r-2 border-primary/20 hidden md:block z-20" />
         
         <div className="container relative z-20 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -173,18 +186,30 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {highlightServices.map((service, idx) => (
-              <div key={idx} className="industrial-border bg-card p-8 flex flex-col justify-between hover:border-primary/40 transition-colors duration-300">
-                <div className="space-y-4">
-                  <div className="p-3 bg-background border border-border inline-block">
-                    {service.icon}
-                  </div>
-                  <h3 className="font-display text-xl tracking-tight text-foreground">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+              <div key={idx} className="industrial-border bg-card flex flex-col hover:border-primary/40 transition-colors duration-300 overflow-hidden">
+                {/* Service photo */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                 </div>
-                <div className="pt-6 mt-6 border-t border-border">
-                  <Link href="/services" className="text-xs font-mono text-primary hover:text-primary/80 flex items-center gap-1.5 uppercase tracking-wider font-bold">
-                    View Service Details <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
+                <div className="p-8 flex flex-col justify-between flex-1 space-y-4">
+                  <div className="space-y-4">
+                    <div className="p-3 bg-background border border-border inline-block">
+                      {service.icon}
+                    </div>
+                    <h3 className="font-display text-xl tracking-tight text-foreground">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                  </div>
+                  <div className="pt-6 mt-6 border-t border-border">
+                    <Link href="/services" className="text-xs font-mono text-primary hover:text-primary/80 flex items-center gap-1.5 uppercase tracking-wider font-bold">
+                      View Service Details <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -202,18 +227,23 @@ export default function Home() {
       <section className="py-24 relative overflow-hidden border-b border-border">
         <div className="container max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Graphics / Badge */}
+            {/* Left - About team photo */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="industrial-border bg-card p-8 relative">
-                <div className="absolute top-0 left-0 bg-primary text-primary-foreground font-display text-xs font-bold px-3 py-1">
+              <div className="industrial-border bg-card relative overflow-hidden">
+                <div className="absolute top-0 left-0 bg-primary text-primary-foreground font-display text-xs font-bold px-3 py-1 z-10">
                   ESTABLISHED
                 </div>
-                <div className="text-center py-8 space-y-2">
-                  <Award className="w-16 h-16 text-primary mx-auto" />
-                  <h3 className="font-display text-3xl tracking-tight">TRUSTED MECHANICS</h3>
-                  <p className="font-mono text-xs text-muted-foreground">IDAHO FALLS, IDAHO</p>
+                {/* Team/workspace photo */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src="/images/about-team.jpg"
+                    alt="Professional mechanic working in the Silva's Automotive shop"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/70 to-transparent" />
                 </div>
-                <div className="border-t border-border pt-4 grid grid-cols-2 gap-4 text-center font-mono text-xs text-muted-foreground">
+                <div className="p-6 border-t border-border grid grid-cols-2 gap-4 text-center font-mono text-xs text-muted-foreground">
                   <div className="border-r border-border">
                     <span className="block text-lg font-bold text-foreground">4.2 / 5</span>
                     Google Rating
@@ -283,8 +313,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {paraphrasedReviews.map((review, idx) => (
               <div key={idx} className="industrial-border bg-card p-8 flex flex-col justify-between relative">
-                {/* Quote symbol */}
-                <span className="absolute top-4 right-6 font-display text-6xl text-primary/10 select-none">“</span>
+                
+                <span className="absolute top-4 right-6 font-display text-6xl text-primary/10 select-none">"</span>
                 
                 <div className="space-y-4">
                   <div className="flex gap-1">
@@ -303,6 +333,34 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION WITH BACKGROUND IMAGE */}
+      <section className="relative py-24 overflow-hidden border-b border-border">
+        {/* Background photo */}
+        <img
+          src="/images/cta-garage.jpg"
+          alt="Professional auto repair garage interior"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-black/80 z-10" />
+        <div className="container max-w-4xl text-center space-y-6 relative z-20">
+          <h2 className="font-display text-3xl sm:text-4xl tracking-tight uppercase">
+            READY TO GET YOUR VEHICLE <span className="text-primary">BACK ON THE ROAD?</span>
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Our certified mechanics are standing by at 695 Yellowstone Ave. Call us now for fast, honest service.
+          </p>
+          <div className="pt-2">
+            <Button asChild size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-display tracking-wider uppercase text-base px-8 py-6 metal-shine">
+              <a href="tel:2085280092" className="flex items-center gap-3">
+                <Phone className="w-5 h-5 fill-primary-foreground animate-pulse" />
+                CALL (208) 528-0092
+              </a>
+            </Button>
           </div>
         </div>
       </section>
